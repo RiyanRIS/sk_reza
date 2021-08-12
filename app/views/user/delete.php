@@ -11,21 +11,21 @@
       <div class="card box-shadow p-5">
         <h3>Tambah Data User</h3>
         <form action="<?= site_url('user/aksi_delete') ?>" method="post">
-          <input type="hidden" name="id_user">
+        <input type="hidden" name="id" <?= val("user_delete", "id") ?>>
           
           <div class="form-group">
-            <label for="nama_User">NAMA USER</label>
+            <label for="nama">NAMA USER</label>
             <input type="text"
-              class="form-control" disabled="true" name="nama_User" id="nama_User" aria-describedby="helpNamaUser" placeholder="Beri Nama Pada User">
+              class="form-control" disabled="true" required="true" name="nama" id="nama" aria-describedby="helpNamaUser" placeholder="Beri Nama Pada User" <?= val("user_delete", "nama") ?>>
           </div>
 
           <div class="form-group">
-            <label for="nama_User">USERNAME</label>
+            <label for="username">USERNAME</label>
             <input type="text"
-              class="form-control" disabled="true" name="nama_User" id="nama_User" aria-describedby="helpNamaUser" placeholder="Beri Nama Pada User">
+              class="form-control" disabled="true" required="true" name="username" id="username" aria-describedby="helpNamaUser" placeholder="Username" <?= val("user_delete", "username") ?>>
           </div>
 
-          <input name="btn_simpan" id="btn_simpan" class="btn btn-primary" type="button" value="Simpan"> <a href="<?= site_url('user') ?>" class="btn btn-danger">Batal</a>
+          <input name="btn_simpan" id="btn_simpan" class="btn btn-primary" type="submit" value="Hapus"> <a href="<?= site_url('user') ?>" class="btn btn-danger">Batal</a>
         </form>
 
         

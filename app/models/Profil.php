@@ -1,6 +1,6 @@
 <?php
 
-class Profil {
+class ProfilModel {
 
   private $table = 'profil';
 	private $db;

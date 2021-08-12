@@ -16,7 +16,7 @@ class Home extends Controller {
 	public function profil()
 	{
 		$data['judul'] = 'Profil';
-		$data['profil'] = model("Profil")->getProfil();
+		$data['profil'] = model("ProfilModel")->getProfil();
 		view('home/profil', $data);
 	}
 
@@ -48,11 +48,10 @@ class Home extends Controller {
 				$_POST['logo_kampus'] = $img_kampus;
 			}
 
-
-			$simpan = model('Profil')->simpan($_POST);
+			$simpan = model('ProfilModel')->simpan($_POST);
 
 			if($simpan == true){
-				$profil = model('Profil')->getProfil();
+				$profil = model('ProfilModel')->getProfil();
   			$_SESSION['PROFIL'] = $profil;
 				setMsg("Berhasil memperbarui data.");
 			}else{
@@ -62,8 +61,4 @@ class Home extends Controller {
     header('location: '. site_url('home/profil'));
 	}
 
-	function hehe($id = '')
-	{
-		
-	}
 }

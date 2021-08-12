@@ -2,7 +2,7 @@
 
 if(!isset($_SESSION['PROFIL']) || empty($_SESSION['PROFIL'])){
 
-  $profil = model('Profil')->getProfil();
+  $profil = model('ProfilModel')->getProfil();
   $_SESSION['PROFIL'] = $profil;
   
 }

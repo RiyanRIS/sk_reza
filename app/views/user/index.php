@@ -22,13 +22,15 @@
               </tr>
             </thead>
             <tbody>
+              <?php $no = 1; foreach ($data['user'] as $key) { ?>
               <tr>
-                <td>1</td>
-                <td>Riyan Risky W S</td>
-                <td>riyanris</td>
-                <td>admin</td>
-                <td><a href="<?= site_url('user/edit/1') ?>" class="btn btn-sm btn-info" title="Edit Data"><i class="fa fa-edit    "></i></a> <a href="<?= site_url('user/delete/1') ?>" class="btn btn-sm btn-danger" title="Hapus Data"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                <td><?= $no++ ?></td>
+                <td><?= ucwords($key['nama']) ?></td>
+                <td><?= $key['username'] ?></td>
+                <td><?= ucwords($key['role']) ?></td>
+                <td><a href="<?= site_url('user/edit/'.$key['id']) ?>" class="btn btn-sm btn-info" title="Edit Data"><i class="fa fa-edit    "></i></a> <a href="<?= site_url('user/delete/'.$key['id']) ?>" class="btn btn-sm btn-danger" title="Hapus Data"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
               </tr>
+              <?php } ?>
             </tbody>
           </table>
         </div>
