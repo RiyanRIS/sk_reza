@@ -15,18 +15,20 @@
             <thead>
               <tr>
                 <td>NO.</td>
-                <td>ID ARSIP</td>
+                <td>KODE ARSIP</td>
                 <td>NAMA ARSIP</td>
                 <td>AKSI</td>
               </tr>
             </thead>
             <tbody>
+            <?php $no = 1; foreach ($data['arsip'] as $key) { ?>
               <tr>
-                <td>1</td>
-                <td>014/ARSIP/BEM/09/2021</td>
-                <td>LPJ Pelantikan</td>
-                <td><a href="<?= site_url('arsip/edit/1') ?>" class="btn btn-sm btn-info" title="Edit Data"><i class="fa fa-edit    "></i></a> <a href="<?= site_url('arsip/delete/1') ?>" class="btn btn-sm btn-danger" title="Hapus Data"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                <td><?= $no++ ?></td>
+                <td><?= $key['kode'] ?></td>
+                <td><a target="_BLANK" href="<?= toUrl("arsip", $key['file']) ?>"><?= $key['nama'] ?></a></td>
+                <td><a href="<?= site_url('arsip/edit/'.$key['id']) ?>" class="btn btn-sm btn-info" title="Edit Data"><i class="fa fa-edit    "></i></a> <a href="<?= site_url('arsip/delete/'.$key['id']) ?>" class="btn btn-sm btn-danger" title="Hapus Data"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
               </tr>
+              <?php } ?>
             </tbody>
           </table>
         </div>

@@ -38,12 +38,32 @@ function val_radio(String $form, String $part, String $value):String
   }
 }
 
+function val_select(String $form, String $part, String $value):String
+{
+  $sesi = @$_SESSION[$form][$part];
+  if($value == $sesi){
+    $_SESSION[$form][$part] = null;
+    return "selected=\"true\"";
+  }else{
+    return "";
+  }
+}
+
 /**
  * Periksa udah login atau belum kalo belum langsung tendang ke halaman login
  *
  * @return void
  */
 function cekLogin()
+{
+  if(@$_SESSION['log_status'] != 1) {
+    setMsg('Anda Belum Login. Silahkan login terlebih dahulu.', 'danger');
+    header('location: '. site_url('auth'));
+    exit;
+  }
+}
+
+function cekAdmin()
 {
   if(@$_SESSION['log_status'] != 1) {
     setMsg('Anda Belum Login. Silahkan login terlebih dahulu.', 'danger');

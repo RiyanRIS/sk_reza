@@ -1,8 +1,8 @@
 <?php
 
-class UserModel {
+class ArsipModel {
 
-  private $table = 'users';
+  private $table = 'arsip';
 	private $db;
 
 	public function __construct()
@@ -25,19 +25,10 @@ class UserModel {
 		return $this->db->single();
 	}
 
-	public function getByUsername($username)
+	public function cekKode($kode)
 	{
-		$this->db->query('SELECT * FROM ' . $this->table .' WHERE `username` = :username');
-		$this->db->bind('username', $username);
-		$this->db->execute();
-
-		return $this->db->single();
-	}
-
-	public function cekUsername($username)
-	{
-		$this->db->query("SELECT * FROM ". $this->table ." WHERE `username` = :username");
-		$this->db->bind('username', $username);
+		$this->db->query("SELECT * FROM ". $this->table ." WHERE `kode` = :kode");
+		$this->db->bind('kode', $kode);
 		if(0 == count($this->db->resultSet())){
 			return true;
 		}else{
@@ -45,10 +36,10 @@ class UserModel {
 		}
 	}
 
-	public function cekUsernameEdit($id, $username)
+	public function cekKodeEdit($id, $kode)
 	{
-		$this->db->query("SELECT * FROM ". $this->table ." WHERE `username` = :username AND `id` != :id");
-		$this->db->bind('username', $username);
+		$this->db->query("SELECT * FROM ". $this->table ." WHERE `kode` = :kode AND `id` != :id");
+		$this->db->bind('kode', $kode);
 		$this->db->bind('id', $id);
 		if(0 == count($this->db->resultSet())){
 			return true;
@@ -59,13 +50,18 @@ class UserModel {
 
 	public function simpan($data)
 	{
-		$query = "INSERT INTO ". $this->table ."(`nama`, `role`, `username`, `password`) VALUES (:nama, :role, :username, :password)";
+		$query = "INSERT INTO ". $this->table ."(`kode`, `nama`, `jenis`, `tanggal`, `jam`, `file`, `catatan`, `id_users`, `created_at`) VALUES (:kode, :nama, :jenis, :tanggal, :jam, :file, :catatan, :id_users, :created_at)";
 
 		$this->db->query($query);
+		$this->db->bind('kode',$data['kode']);
 		$this->db->bind('nama',$data['nama']);
-		$this->db->bind('role',$data['role']);
-		$this->db->bind('username',$data['username']);
-		$this->db->bind('password',password_hash($data['password'], PASSWORD_DEFAULT));
+		$this->db->bind('jenis',$data['jenis']);
+		$this->db->bind('tanggal',$data['tanggal']);
+		$this->db->bind('jam',$data['jam']);
+		$this->db->bind('file',$data['file']);
+		$this->db->bind('catatan',$data['catatan']);
+		$this->db->bind('id_users',$data['id_users']);
+		$this->db->bind('created_at',time());
 		$this->db->execute();
 
 		if( !empty($this->db->errorInfo()) ){  
@@ -78,21 +74,18 @@ class UserModel {
 
 	public function ubah($data)
 	{
-		if($data['password'] != ""){
-			$query = "UPDATE ". $this->table ." SET `nama`=:nama,`role`=:role,`username`=:username,`password`=:password WHERE `id`=:id";
-		}else{
-			$query = "UPDATE ". $this->table ." SET `nama`=:nama,`role`=:role,`username`=:username WHERE `id`=:id";
-		}
+		$query = "UPDATE ". $this->table ." SET `kode`=:kode,`nama`=:nama,`jenis`=:jenis,`tanggal`=:tanggal,`jam`=:jam,`file`=:file,`catatan`=:catatan,`id_users`=:id_users WHERE `id`=:id";
 
 		$this->db->query($query);
+		$this->db->bind('kode',$data['kode']);
 		$this->db->bind('nama',$data['nama']);
-		$this->db->bind('role',$data['role']);
-		$this->db->bind('username',$data['username']);
+		$this->db->bind('jenis',$data['jenis']);
+		$this->db->bind('tanggal',$data['tanggal']);
+		$this->db->bind('jam',$data['jam']);
+		$this->db->bind('file',$data['file']);
+		$this->db->bind('catatan',$data['catatan']);
+		$this->db->bind('id_users',$data['id_users']);
 		$this->db->bind('id',$data['id']);
-
-		if($data['password'] != ""){
-			$this->db->bind('password',password_hash($data['password'], PASSWORD_DEFAULT));
-		}
 	
 		$this->db->execute();
 

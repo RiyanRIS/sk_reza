@@ -21,9 +21,12 @@ class Auth extends Controller {
       $username = $_POST['username'];
       $password = $_POST['password'];
 
-      if($username == 'riyanris' && $password == '1234'){
+      $data = model("UserModel")->getByUsername($username);
+
+      if(password_verify($password, $data['password'])){
         setMsg("Aktivitas masuk berhasil.");
         
+        $_SESSION['log_id'] = $data['id'];
         $_SESSION['log_username'] = $username;
 				$_SESSION['log_status'] = 1;
 
@@ -40,6 +43,7 @@ class Auth extends Controller {
   function aksi_logout()
   {
     setMsg("Aktivitas keluar berhasil.");
+    $_SESSION['log_id'] = null;
     $_SESSION['log_username'] = null;
     $_SESSION['log_status'] = 0;
     header('location: '. site_url('auth'));
