@@ -1,7 +1,18 @@
 ## SISTEM INFORMASI MANAJEMEN BERKAS
 ### SKRIPSI FHAREZA ALVINDO
 
+##### Arsip
 
+- id
+- kode
+- nama
+- jenis
+- tanggal
+- jam
+- file
+- catatan
+- id_users
+- created_at
 
 ##### Users
 
