@@ -27,6 +27,7 @@ class Auth extends Controller {
         setMsg("Aktivitas masuk berhasil.");
         
         $_SESSION['log_id'] = $data['id'];
+        $_SESSION['log_role'] = $data['role'];
         $_SESSION['log_username'] = $username;
 				$_SESSION['log_status'] = 1;
 

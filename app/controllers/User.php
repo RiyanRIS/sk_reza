@@ -4,6 +4,7 @@ class User extends Controller {
 	public function __construct()
 	{	
 		cekLogin();
+		cekAdmin();
 	} 
 
 	public function index()

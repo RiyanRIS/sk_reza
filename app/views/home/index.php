@@ -16,6 +16,8 @@
         </a>
       </div>
 
+      <?php if(isAdmin()){ ?>
+
       <!-- USER -->
       <div class="col-md-12 mb-3">
         <a href="<?= site_url('user') ?>">
@@ -37,6 +39,8 @@
           </div>
         </a>
       </div>
+
+      <?php } ?>
 
       <!-- Logout -->
       <div class="col-md-12">

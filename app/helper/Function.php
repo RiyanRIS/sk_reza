@@ -63,11 +63,20 @@ function cekLogin()
   }
 }
 
+function isAdmin()
+{
+  if(@$_SESSION['log_role'] == "admin") {
+    return true;
+  }else{
+    return false;
+  }
+}
+
 function cekAdmin()
 {
-  if(@$_SESSION['log_status'] != 1) {
-    setMsg('Anda Belum Login. Silahkan login terlebih dahulu.', 'danger');
-    header('location: '. site_url('auth'));
+  if(!isAdmin()) {
+    setMsg('Anda Tidak Berhak Mengakses Halaman Ini.', 'danger');
+    header('location: '. site_url('home'));
     exit;
   }
 }
