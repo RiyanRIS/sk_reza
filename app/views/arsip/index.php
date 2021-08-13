@@ -21,14 +21,20 @@
               </tr>
             </thead>
             <tbody>
-            <?php $no = 1; foreach ($data['arsip'] as $key) { ?>
+            <?php if(count($data['arsip']) == 0){ ?>
               <tr>
-                <td><?= $no++ ?></td>
-                <td><?= $key['kode'] ?></td>
-                <td><a target="_BLANK" href="<?= toUrl("arsip", $key['file']) ?>"><?= $key['nama'] ?></a></td>
-                <td><a href="<?= site_url('arsip/edit/'.$key['id']) ?>" class="btn btn-sm btn-info" title="Edit Data"><i class="fa fa-edit    "></i></a> <a href="<?= site_url('arsip/delete/'.$key['id']) ?>" class="btn btn-sm btn-danger" title="Hapus Data"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                <td colspan="4" style="text-align:center">Data Kosong..</td>
               </tr>
+            <?php }else{ ?>
+              <?php $no = 1; foreach ($data['arsip'] as $key) { ?>
+                <tr>
+                  <td><?= $no++ ?></td>
+                  <td><?= $key['kode'] ?></td>
+                  <td><a target="_BLANK" href="<?= toUrl("arsip", $key['file']) ?>"><?= $key['nama'] ?></a></td>
+                  <td><a href="<?= site_url('arsip/edit/'.$key['id']) ?>" class="btn btn-sm btn-info" title="Edit Data"><i class="fa fa-edit    "></i></a> <a href="<?= site_url('arsip/delete/'.$key['id']) ?>" class="btn btn-sm btn-danger" title="Hapus Data"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                </tr>
               <?php } ?>
+            <?php } ?>
             </tbody>
           </table>
         </div>
