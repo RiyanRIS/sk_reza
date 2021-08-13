@@ -96,6 +96,8 @@ INSERT INTO `users` (`id`, `nama`, `role`, `username`, `password`) VALUES
 ALTER TABLE `arsip`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `arsip` CHANGE `id_users` `id_users` INT NULL;
+
 --
 -- Indexes for table `profil`
 --
@@ -130,7 +132,7 @@ ALTER TABLE `profil`
 ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
-ALTER TABLE `arsip` ADD CONSTRAINT `arsip_users` FOREIGN KEY (`id_users`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `arsip` ADD CONSTRAINT `arsip_users` FOREIGN KEY (`id_users`) REFERENCES `users`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 COMMIT;
 
