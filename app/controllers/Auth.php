@@ -53,6 +53,7 @@ class Auth extends Controller {
     $_SESSION['log_role'] = null;
     $_SESSION['log_username'] = null;
     $_SESSION['log_status'] = 0;
+    $_SESSION['PROFIL'] = '';
     header('location: '. site_url('auth'));
   }
 
