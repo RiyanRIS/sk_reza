@@ -9,7 +9,7 @@
     <!-- EDIT DATA USER -->
     <div class="col-md-12 mb-3">
       <div class="card box-shadow p-5">
-        <h3>Tambah Data User</h3>
+        <h3>Hapus Data User</h3>
         <form action="<?= site_url('user/aksi_delete') ?>" method="post">
         <input type="hidden" name="id" <?= val("user_delete", "id") ?>>
           

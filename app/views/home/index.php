@@ -44,7 +44,7 @@
 
       <!-- Logout -->
       <div class="col-md-12">
-        <a href="">
+        <a href="<?= site_url("auth/logout") ?>">
           <div class="card box-shadow">
             <div class="card-body">
               <h1>Logout</h1>

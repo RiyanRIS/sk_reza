@@ -8,6 +8,11 @@ class Auth extends Controller {
 
 	public function index()
 	{
+    if(@$_SESSION['log_status'] == 1) {
+      setMsg('Anda Sudah Masuk.');
+      header('location: '. site_url('home'));
+      exit;
+    }
 		$data = [
       'title' => "Halaman Login"
     ];
@@ -41,10 +46,11 @@ class Auth extends Controller {
     header('location: '. site_url('auth'));
   }
 
-  function aksi_logout()
+  function logout()
   {
     setMsg("Aktivitas keluar berhasil.");
     $_SESSION['log_id'] = null;
+    $_SESSION['log_role'] = null;
     $_SESSION['log_username'] = null;
     $_SESSION['log_status'] = 0;
     header('location: '. site_url('auth'));
