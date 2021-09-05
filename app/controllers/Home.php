@@ -15,7 +15,6 @@ class Home extends Controller {
 
 	public function profil()
 	{
-		cekAdmin();
 		$data['judul'] = 'Profil';
 		$data['profil'] = model("ProfilModel")->getProfil();
 		view('home/profil', $data);
@@ -23,7 +22,6 @@ class Home extends Controller {
 
 	public function aksi_profil()
 	{
-		cekAdmin();
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 			if(!empty($_FILES["img_lembaga"]["name"])){

@@ -13,6 +13,13 @@ class Arsip extends Controller {
 		view('arsip/index', $data);
 	}
 
+	public function detail($id)
+	{
+		$data['judul'] = 'Detail Arsip';
+		$_SESSION['arsip_detail'] = model("ArsipModel")->get($id);
+		view('arsip/detail', $data);
+	}
+
 	public function add()
 	{
 		$data['judul'] = 'Tambah Arsip';

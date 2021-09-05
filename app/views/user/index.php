@@ -11,7 +11,7 @@
       <div class="card box-shadow p-5">
         <h3>Data User <a href="<?= site_url('user/add') ?>" title="Tambah Data" class="btn btn-sm btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</a> </h3>
         <div class="table-responsive mt-3">
-          <table class="table table-bordered table-stiped">
+          <table class="table table-bordered table-stiped datatable">
             <thead>
               <tr>
                 <td>NO.</td>

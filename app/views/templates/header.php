@@ -9,4 +9,5 @@
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="plugins/sweetalert2/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="dist/css/datatable-bs4.css">
   <link rel="stylesheet" href="dist/css/style.css">

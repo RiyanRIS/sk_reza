@@ -29,6 +29,8 @@
         </a>
       </div>
 
+      <?php } ?>
+
       <!-- Profil -->
       <div class="col-md-12 mb-3">
         <a href="<?= site_url('home/profil') ?>">
@@ -40,7 +42,6 @@
         </a>
       </div>
 
-      <?php } ?>
 
       <!-- Logout -->
       <div class="col-md-12">
