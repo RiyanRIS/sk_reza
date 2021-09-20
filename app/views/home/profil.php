@@ -47,8 +47,15 @@
             <label for="logo_kampus">LOGO KAMPUS</label>
            <input type="file" name="img_kampus">
           </div>
+
+          <?php if(isAdmin()){ ?>
           
           <input name="btn_simpan" id="btn_simpan" class="btn btn-primary" type="submit" value="Simpan"> <a href="<?= site_url('home') ?>" class="btn btn-danger">Batal</a>
+
+          <?php } else { ?>
+            <a href="<?= site_url('home') ?>" class="btn btn-primary">Kembali</a>
+          <?php } ?>
+
         </form>
       </div>
     </div>

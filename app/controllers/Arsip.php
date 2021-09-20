@@ -22,6 +22,11 @@ class Arsip extends Controller {
 
 	public function add()
 	{
+		if(!isAdmin()){
+			setMsg("Kamu tidak berhak mengakses halaman ini.", "error");
+			header('location: '. site_url('arsip'));
+			return;
+		}
 		$data['judul'] = 'Tambah Arsip';
 		view('arsip/add', $data);
 	}
@@ -29,6 +34,12 @@ class Arsip extends Controller {
 	public function aksi_add()
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			if(!isAdmin()){
+				setMsg("Kamu tidak berhak mengakses halaman ini.", "error");
+			header('location: '. site_url('arsip'));
+			return;
+			}
+
 			$status = 1;
 
 			if(!preg_match("/^[a-zA-Z0-9\/_-]*$/", $_POST['kode'])){
@@ -78,6 +89,12 @@ class Arsip extends Controller {
 
 	public function edit($id)
 	{
+		if(!isAdmin()){
+			setMsg("Kamu tidak berhak mengakses halaman ini.", "error");
+			header('location: '. site_url('arsip'));
+			return;
+		}
+
 		if($_SESSION['arsip_edit']['id'] == ""){
 			$_SESSION['arsip_edit'] = model("ArsipModel")->get($id);
 			$temp_arsip = $_SESSION['arsip_edit'];
@@ -93,6 +110,12 @@ class Arsip extends Controller {
 
 	public function aksi_edit()
 	{
+		if(!isAdmin()){
+			setMsg("Kamu tidak berhak mengakses halaman ini.", "error");
+			header('location: '. site_url('arsip'));
+			return;
+		}
+
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$status = 1;
 
@@ -146,6 +169,12 @@ class Arsip extends Controller {
 
 	public function delete($id)
 	{
+		if(!isAdmin()){
+			setMsg("Kamu tidak berhak mengakses halaman ini.", "error");
+			header('location: '. site_url('arsip'));
+			return;
+		}
+
 		$data['judul'] = 'Delete Arsip';
 		if($_SESSION['arsip_delete']['id'] == ""){
 			$_SESSION['arsip_delete'] = model("ArsipModel")->get($id);
@@ -155,6 +184,12 @@ class Arsip extends Controller {
 
 	public function aksi_delete()
 	{
+		if(!isAdmin()){
+			setMsg("Kamu tidak berhak mengakses halaman ini.", "error");
+			header('location: '. site_url('arsip'));
+			return;
+		}
+
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$delete = model("ArsipModel")->hapus($_POST['id']);
 			if($delete){

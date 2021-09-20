@@ -23,6 +23,10 @@ class Home extends Controller {
 	public function aksi_profil()
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			if(!isAdmin()){
+				setMsg("Kamu tidak berhak mengakses halaman ini.");
+				header('location: '. site_url('home/profil'));
+			}
 
 			if(!empty($_FILES["img_lembaga"]["name"])){
 				$img_lembaga = time() . "-" . basename($_FILES["img_lembaga"]["name"]);

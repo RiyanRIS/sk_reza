@@ -1,6 +1,6 @@
 <?php
 
-define('base_url', 'http://localhost/reza/code/public/index.php');
+define('base_url', 'http://localhost/kumpulan-sistem/reza/code/public/index.php');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'riyanris');
