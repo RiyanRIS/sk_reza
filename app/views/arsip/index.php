@@ -37,7 +37,7 @@
                   <td><?= $no++ ?></td>
                   <td><a href="<?= site_url('arsip/detail/'.$key['id']) ?>"><?= $key['kode'] ?></a></td>
                   <td><?= $key['nama'] ?></td>
-                  <?php if(isAdmin()){ ?>
+                  <?php if(isAdmin()){ ?> 
                   <td><a href="<?= site_url('arsip/edit/'.$key['id']) ?>" class="btn btn-sm btn-info" title="Edit Data"><i class="fa fa-edit    "></i></a> <a href="<?= site_url('arsip/delete/'.$key['id']) ?>" class="btn btn-sm btn-danger" title="Hapus Data"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                   <?php } ?>
                 </tr>
