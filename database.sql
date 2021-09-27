@@ -53,6 +53,7 @@ CREATE TABLE `profil` (
   `lembaga` varchar(64) NOT NULL,
   `kabinet` varchar(64) NOT NULL,
   `kampus` varchar(64) NOT NULL,
+  `penjelasan` varchar(300) NOT NULL,
   `logo_lembaga` varchar(255) NOT NULL,
   `logo_kampus` varchar(255) NOT NULL,
   `updated_at` int NOT NULL
@@ -62,8 +63,8 @@ CREATE TABLE `profil` (
 -- Dumping data for table `profil`
 --
 
-INSERT INTO `profil` (`id`, `sistem`, `lembaga`, `kabinet`, `kampus`, `logo_lembaga`, `logo_kampus`, `updated_at`) VALUES
-(1, 'E-Arsip BEM Akakom', 'Badan Eksekutif Mahasiswa', 'Pena Karya Bersama', 'STMIK AKAKOM YOGYAKARTA', '1628667602-smpnegeri3tulungagung.png', '1628667602-logo-stmik-akakom.jpg', 1628831134);
+INSERT INTO `profil` (`id`, `sistem`, `lembaga`, `kabinet`, `kampus`,`penjelasan` , `logo_lembaga`, `logo_kampus`, `updated_at`) VALUES
+(1, 'E-Arsip BEM Akakom', 'Badan Eksekutif Mahasiswa', 'Pena Karya Bersama', 'STMIK AKAKOM YOGYAKARTA', 'Penjelasan seputar BEM kabinet dan hal lainyaa', '1628667602-smpnegeri3tulungagung.png', '1628667602-logo-stmik-akakom.jpg', 1628831134);
 
 -- --------------------------------------------------------
 
