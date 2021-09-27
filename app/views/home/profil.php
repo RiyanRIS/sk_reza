@@ -38,6 +38,12 @@
           </div>
 
           <div class="form-group">
+            <label for="penjelasan">PENJELASAN</label>
+            <input type="text"
+              class="form-control" required="true" name="penjelasan" id="penjelasan" aria-describedby="penjelasan" value="<?= $data['profil']['penjelasan'] ?>" placeholder="PENJELASAN">
+          </div>
+
+          <div class="form-group">
             <label for="logo_lembaga">LOGO LEMBAGA</label>
             <input type="file" name="img_lembaga">
 
@@ -52,8 +58,6 @@
           
           <input name="btn_simpan" id="btn_simpan" class="btn btn-primary" type="submit" value="Simpan"> <a href="<?= site_url('home') ?>" class="btn btn-danger">Batal</a>
 
-          <?php } else { ?>
-            <a href="<?= site_url('home') ?>" class="btn btn-primary">Kembali</a>
           <?php } ?>
 
         </form>

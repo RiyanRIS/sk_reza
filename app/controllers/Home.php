@@ -17,7 +17,11 @@ class Home extends Controller {
 	{
 		$data['judul'] = 'Profil';
 		$data['profil'] = model("ProfilModel")->getProfil();
-		view('home/profil', $data);
+		if(isAdmin()){
+			view('home/profil', $data);
+		} else {
+			view('home/profil_user', $data);
+		}
 	}
 
 	public function aksi_profil()
